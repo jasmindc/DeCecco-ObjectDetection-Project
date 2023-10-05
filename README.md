@@ -3,127 +3,52 @@
 
 Australia's stunningly beautiful Great Barrier Reef is the world’s largest coral reef and home to 1,500 species of fish, 400 species of corals, 130 species of sharks, rays, and a massive variety of other sea life.
 
-Unfortunately, the reef is under threat, in part because of the overpopulation of one particular starfish – the coral-eating crown-of-thorns starfish (or COTS for short). Scientists, tourism operators and reef managers established a large-scale intervention program to control COTS outbreaks to ecologically sustainable levels, since COTS starfish are threatening aAustralia's Great Barrier Reef.
+Unfortunately, the reef is under threat, in part because of the overpopulation of one particular starfish – the coral-eating crown-of-thorns starfish (or COTS for short). Scientists, tourism operators and reef managers established a large-scale intervention program to control COTS outbreaks to ecologically sustainable levels, since COTS starfish are threatening Australia's Great Barrier Reef.
 
 The object detection model will help researcher identify starfish in real-time and take well-informed action to protect the reef for future generations.
 Underwater videos of coral reefs are used to train the model.
 
-## Installing / Getting started
+## Features
 
-A quick introduction of the minimal setup you need to get a hello world up &
-running.
+This model is trained using Yolov8 in order predict the presence and position of crown-of-thorns starfish in sequences of underwater images taken at various times and locations around the Great Barrier Reef. Predictions take the form of a bounding box together with a confidence score for each identified starfish. An image may contain zero or more starfish.
 
-```shell
-packagemanager install awesome-project
-awesome-project start
-awesome-project "Do something!"  # prints "Nah."
-```
+![image](https://github.com/jasmindc/object-detection-project/assets/67323439/f098ddba-6e4c-4f8e-bdd0-355e5ac7c12c)
 
-Here you should say what actually happens when you execute the code above.
+
+## Installing
+
+Code can be downloaded and it is ready to be run.
 
 ### Initial Configuration
 
-Some projects require initial configuration (e.g. access tokens or keys, `npm i`).
-This is the section where you would document those requirements.
+Before running the model, make sure to download and upload input data from here (15 GB size) : https://www.kaggle.com/competitions/tensorflow-great-barrier-reef/data
+
+Input used:
+
+train/ - Folder containing training set photos of the form video_{video_id}/{video_frame_number}.jpg.
+
+[train/test].csv - Metadata for the images. test.csv is not aviable.
+
+train.csv fields:
+  * video_id - ID number of the video the image was part of. The video ids are not meaningfully ordered.
+  * video_frame - The frame number of the image within the video. Expect to see occasional gaps in the frame number from when the diver surfaced.
+  * sequence - ID of a gap-free subset of a given video. The sequence ids are not meaningfully ordered.
+  * sequence_frame - The frame number within a given sequence.
+  * image_id - ID code for the image, in the format '{video_id}-{video_frame}'
+  * annotations - The bounding boxes of any starfish detections in a string format that can be evaluated directly with Python. A bounding box is described by the pixel coordinate (x_min, y_min) of its upper left corner within the image together with its width and height in pixels.
+
+
 
 ## Developing
 
-Here's a brief intro about what a developer must do in order to start developing
-the project further:
+The model is not ready to deploy, here some further steps that can be taken:
+* evaulation on actual test set (not aviable on Kaggle challange)
+* develop user interface 
 
-```shell
-git clone https://github.com/your/awesome-project.git
-cd awesome-project/
-packagemanager install
-```
-
-And state what happens step-by-step.
-
-### Building
-
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here:
-
-```shell
-./configure
-make
-make install
-```
-
-Here again you should state what actually happens when the code above gets
-executed.
-
-### Deploying / Publishing
-
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
-
-```shell
-packagemanager deploy awesome-project -s server.com -u username -p password
-```
-
-And again you'd need to tell what the previous code actually does.
-
-## Features
-
-What's all the bells and whistles this project can perform?
-* What's the main functionality
-* You can also do another thing
-* If you get really randy, you can even do this
-
-## Configuration
-
-Here you should write what are all of the configurations a user can enter when
-using the project.
-
-#### Argument 1
-Type: `String`  
-Default: `'default value'`
-
-State what an argument does and how you can use it. If needed, you can provide
-an example below.
-
-Example:
-```bash
-awesome-project "Some other value"  # Prints "You're nailing this readme!"
-```
-
-#### Argument 2
-Type: `Number|Boolean`  
-Default: 100
-
-Copy-paste as many of these as you need.
-
-## Contributing
-
-When you publish something open source, one of the greatest motivations is that
-anyone can just jump in and start contributing to your project.
-
-These paragraphs are meant to welcome those kind souls to feel that they are
-needed. You should state something like:
-
-"If you'd like to contribute, please fork the repository and use a feature
-branch. Pull requests are warmly welcome."
-
-If there's anything else the developer needs to know (e.g. the code style
-guide), you should link it here. If there's a lot of things to take into
-consideration, it is common to separate this section to its own file called
-`CONTRIBUTING.md` (or similar). If so, you should say that it exists here.
 
 ## Links
-
-Even though this information can be found inside the project on machine-readable
-format like in a .json file, it's good to include a summary of most useful
-links to humans using your project. You can include links like:
-
-- Project homepage: https://your.github.com/awesome-project/
-- Repository: https://github.com/your/awesome-project/
-- Issue tracker: https://github.com/your/awesome-project/issues
-  - In case of sensitive bugs like security vulnerabilities, please contact
-    my@email.com directly instead of using issue tracker. We value your effort
-    to improve the security and privacy of this project!
-- Related projects:
-  - Your other project: https://github.com/your/other-project/
-  - Someone else's project: https://github.com/someones/awesome-project/
+* Kaggle source for the challange: https://www.kaggle.com/competitions/tensorflow-great-barrier-reef/overview
+* Kaggle model code: https://www.kaggle.com/code/jasmindc/great-barrier-reef-object-detection
+* Yolov8 information: https://docs.ultralytics.com/models/yolov8/
 
 
