@@ -49,6 +49,6 @@ The model is not ready to deploy, here some further steps that can be taken:
 ## Links
 * Kaggle source for the challange: https://www.kaggle.com/competitions/tensorflow-great-barrier-reef/overview
 * Kaggle model code: https://www.kaggle.com/code/jasmindc/great-barrier-reef-object-detection
-* Yolov8 information: https://docs.ultralytics.com/models/yolov8/
+* Yolov8 information: https://docs.ultralytics.com/
 
 
