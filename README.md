@@ -17,7 +17,7 @@ This model is trained using Yolov8 in order predict the presence and position of
 
 ## Installing
 
-Code can be downloaded and it is ready to be run.
+Code can be downloaded and it is ready to be run in different environments paying attention to used paths.
 
 ### Initial Configuration
 
