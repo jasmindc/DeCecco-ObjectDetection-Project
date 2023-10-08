@@ -42,7 +42,7 @@ train.csv fields:
 ## Developing
 
 The model is not ready to deploy, here some further steps that can be taken:
-* evaulation on actual test set (not aviable on Kaggle challange)
+* evaulation on actual test set (not available on Kaggle challange)
 * develop user interface 
 
 
